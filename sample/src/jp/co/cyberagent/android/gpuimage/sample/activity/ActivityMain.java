@@ -16,16 +16,13 @@
 
 package jp.co.cyberagent.android.gpuimage.sample.activity;
 
-import android.Manifest;
+import jp.co.cyberagent.android.gpuimage.sample.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.PermissionChecker;
 import android.view.View;
 import android.view.View.OnClickListener;
-import jp.co.cyberagent.android.gpuimage.sample.R;
 
 public class ActivityMain extends Activity implements OnClickListener {
 
@@ -37,23 +34,23 @@ public class ActivityMain extends Activity implements OnClickListener {
     }
 
     @Override public void onClick(final View v) {
-        if (PermissionChecker.checkSelfPermission(this, Manifest.permission.CAMERA)
-            == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA },
-                v.getId());
-        } else {
+//        if (PermissionChecker.checkSelfPermission(this, Manifest.permission.CAMERA)
+//            == PackageManager.PERMISSION_DENIED) {
+//            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA },
+//                v.getId());
+//        } else {
             startActivity(v.getId());
-        }
+//        }
     }
 
-    @Override public void onRequestPermissionsResult(int requestCode, String[] permissions,
-        int[] grantResults) {
-        if (grantResults.length != 1 || grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            startActivity(requestCode);
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
+//    @Override public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//        int[] grantResults) {
+//        if (grantResults.length != 1 || grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            startActivity(requestCode);
+//        } else {
+//            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        }
+//    }
 
     private void startActivity(int id) {
         switch (id) {
